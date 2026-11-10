@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Research Digest: 2026-11-10</title><link rel="stylesheet" href="style.css"></head><body>
+<p><a href="index.html">&larr; All digests</a></p>
+<h1>Daily Research Digest: Nov 10, 2026</h1>
+<p class="note">Most of this comes from secondary aggregators and press-release feeds. Primary sources were not checked.</p>
+
+<h2>Top 3 things to know</h2>
+<ol>
+<li><b>Shield AI agreed to buy radar maker Echodyne for $5.3B</b> (announced Nov 5). Bloomberg reportedly puts Shield AI's value at about $28.8B. It is the biggest deep-tech deal in the window and shows defense autonomy companies buying sensing hardware to own the full stack.</li>
+<li><b>RoboColosseum, a blind head-to-head test of robot policies across 124 sites (5,699 trials), found no single winner.</b> No policy completed any of the five Unitree G1 humanoid tasks. It is the most useful reality check of the week, and NVIDIA's GR00T 2 claims should be read against it.</li>
+<li><b>Robotics is the second-largest AI funding sector this month by dollars.</b> One tracker counts about $1.7B across 6 rounds, behind foundation models at $5.1B. Zipline's $1.5B round makes up most of it.</li>
+</ol>
+
+<h2>Robotics &amp; physical AI</h2>
+<ul>
+<li><b>NVIDIA GR00T 2 and Isaac Lab 3.0 were announced at CoRL.</b> GR00T 2 is a 2B-parameter vision-language-action model that reportedly averages 71% one-shot success across 50 tasks. Weights and dataset are due in December. The 71% figure comes from a summary page, so wait for independent evals.</li>
+<li><b>Zipline raised $1.5B at a $21.5B valuation</b> (Nov 6). A drone delivery company with its own aircraft, launch systems and logistics software, and one of the few physical-AI businesses with real operating scale.</li>
+<li><b>UC Berkeley and NVIDIA presented "agentic robotics,"</b> where coding agents write and verify robot code instead of relying on large motion datasets. Interesting if it holds up outside simulation.</li>
+<li><b>Boston Dynamics posted a video of Atlas on wheels,</b> testing model-based and whole-body RL control. A demo, not a product signal.</li>
+<li><b>Deployments are mostly incremental.</b> ANYbotics began delivering ANYmal X, Intel and SAP showed an autonomous warehouse demo, and ID Logistics and Terra Robotics plan a humanoid trial with no site or robot chosen yet. Treat the trial as hype until a site is named.</li>
+<li><b>Market share claim:</b> AGIBOT says it holds about 43% of H1 global humanoid shipments (citing Counterpoint), with about 2B yuan in revenue. This is a company claim.</li>
+<li><b>Smaller items:</b> Serve Robotics launched "Physical AI Services" (connectivity, data curation, sidewalk-derived datasets), a data-monetization pivot. Nature Will announced a 50B-parameter model for dexterous hands with no independent results seen. Robbyant released LingBot-Touch, a tactile foundation model spanning three sensor types.</li>
+</ul>
+
+<h2>AI/ML research &amp; models</h2>
+<ul>
+<li><b>Anthropic released Claude Fable 5.2 and Mythos 5.2 (Nov 9),</b> and Meta released Muse Ember the same day. BenchLM puts Fable 5.2 first at 91.2 (an estimate), then Gemini 4 Carbon at 88.1 and Claude Opus 5.5 at 85.8. Gaps this size rarely predict real deployment differences.</li>
+<li><b>GPT-6.1 Sol scores 85.0 on BenchLM,</b> about 93% of the top score at an output price BenchLM says is roughly 75% lower. For cost-sensitive products the price gap matters more.</li>
+<li><b>Best open-weight model is Kimi K3.1 Pro</b> (about 2.8T total parameters, 104B active) at 74.6, a clear gap to the closed frontier.</li>
+<li><b>FrontierPhysics (56 research-level physics tasks, 22 models):</b> every model scored under 30%. Claude Opus 5.5 in Claude Code led at 27.4%, then GPT-6 Astra at 23.2%.</li>
+<li><b>Route Anything:</b> perfect per-input routing across models beats the best single model by about 5.4 points, but learned routers capture only a small share of that.</li>
+<li><b>VFlash (NVIDIA):</b> a small helper model for VLM robot planning, claiming about 80% lower latency on Jetson Thor. Task-success gains (70.2% vs 62.6%) are mostly from simulation or recorded data.</li>
+<li><b>LoCo</b> cuts reasoning length by 42-45% on math tests, but was tested on one 7B model only.</li>
+</ul>
+<p class="note">The paper roundup used covers Nov 1-7, so Nov 8-10 papers are thin.</p>
+
+<h2>VC &amp; startup deals</h2>
+<ul>
+<li><b>OpenAI's round is open at $11B so far at a $1.25T valuation,</b> with SoftBank and MGX named. It could reach about $20B, below the earlier $30B target and the $1.5T valuation first sought. A soft signal at the top of the market.</li>
+<li><b>Thinking Machines Lab announced a $5.0B seed at about a $40B valuation</b> (Nov 6, lead undisclosed).</li>
+<li><b>Cyera raised $800M at a $20B valuation</b> (AI data security), and Vanta agreed to acquire Pillar Security (terms undisclosed). AI security is consolidating quickly.</li>
+<li><b>Recent robotics rounds just before the window:</b> Foundry Robotics $100M Series A (Oct 31), Tutor Intelligence $75M (Nov 3, robot workers rented by the hour), MMI $125M (Nov 1, robotic microsurgery).</li>
+<li><b>Seed-stage:</b> Rogue Cortex (UK) $4.5M for robotics development tooling, EDGE Sound Research $2M for physical-AI perception.</li>
+<li><b>Quiet days:</b> one tracker reported no new AI round above $2M first announced on Nov 7-8.</li>
+</ul>
+
+<h2>Worth a closer look</h2>
+<p><b>Robot evaluation and data infrastructure.</b> RoboColosseum shows nobody can credibly claim a general robot policy today. NVIDIA is open-sourcing models and simulation, Serve is selling its data, and Nebius/Positronic and Honda are running manipulation competitions. The gap is trusted, real-world, cross-site evaluation and the data layer around it. A startup doing third-party robot benchmarking, or deployment-grounded datasets that foundation-model teams pay for, looks more defensible than another policy model. Tutor Intelligence's per-hour robot pricing is a test of whether robots-as-a-service works at scale.</p>
+
+<h2>Sources</h2>
+<ul>
+<li><a href="https://aifundingtracker.com/ai-funding-news-nov-7-8-2026/">Shield AI to buy Echodyne (Bloomberg, via AI Funding Tracker)</a></li>
+<li><a href="https://aifunding.me/roundups/november-2026">AI Funding Rounds November 2026</a></li>
+<li><a href="https://www.unite.ai/vanta-signs-deal-to-acquire-ai-security-firm-pillar-security/">Vanta to acquire Pillar Security (Unite.AI)</a></li>
+<li><a href="https://aiweekly.co/ai-news-today">AI Weekly: today's news</a></li>
+<li><a href="https://blogs.nvidia.com/blog/robotics-simulation-advancements-corl/">NVIDIA: robotics and simulation advances at CoRL</a></li>
+<li><a href="https://physical-ai-times.com/en/news/195379aa7df7/">Physical AI Times: Berkeley/NVIDIA agentic robotics</a></li>
+<li><a href="https://physical-ai-times.com/en/news/337d064abb7f/">Physical AI Times: Boston Dynamics Atlas on wheels</a></li>
+<li><a href="https://physical-ai-times.com/en/news/36330ab412af/">Physical AI Times: AGIBOT market share</a></li>
+<li><a href="https://physical-ai-times.com/en/news/e7e1a813a3c4/">Physical AI Times: ID Logistics / Terra Robotics trial</a></li>
+<li><a href="https://roboticsandautomationnews.com/2026/11/09/anybotics-begins-deliveries-of-anymal-x-robot-for-hazardous-industrial-environments/106837">Robotics &amp; Automation News: ANYmal X deliveries</a></li>
+<li><a href="https://roboticsandautomationnews.com/2026/11/09/nature-will-launches-50-billion-parameter-ai-model-for-dexterous-robot-hands/106855">Robotics &amp; Automation News: Nature Will dexterous hand model</a></li>
+<li><a href="https://roboticsandautomationnews.com/2026/11/09/rogue-cortex-emerges-from-stealth-with-4-5-million-to-simplify-robotics-development/106831">Robotics &amp; Automation News: Rogue Cortex</a></li>
+<li><a href="https://www.globenewswire.com/news-release/2026/11/05/3397009/0/en/serve-robotics-launches-physical-ai-services-opening-technology-behind-its-robot-fleets-to-leading-physical-ai-companies.html">Serve Robotics Physical AI Services (GlobeNewswire)</a></li>
+<li><a href="https://huggingface.co/papers/2611.12806">Robbyant LingBot-Touch paper</a></li>
+<li><a href="https://signaldrifts.substack.com/p/ai-research-papers-of-the-week3">AI Research Papers of the Week, Nov 1-7 (Signal Drift)</a></li>
+<li><a href="https://arxiv.org/abs/2611.02497">RoboColosseum (arXiv)</a></li>
+<li><a href="https://arxiv.org/abs/2611.06910">FrontierPhysics (arXiv)</a></li>
+<li><a href="https://arxiv.org/abs/2611.08449">VFlash (arXiv)</a></li>
+<li><a href="https://arxiv.org/abs/2611.05275">Route Anything (arXiv)</a></li>
+<li><a href="https://arxiv.org/abs/2611.04814">LoCo (arXiv)</a></li>
+<li><a href="https://benchlm.ai/">BenchLM leaderboard</a></li>
+</ul>
+</body></html>
