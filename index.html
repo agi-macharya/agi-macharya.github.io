@@ -1,20 +1,234 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>agi-macharya</title>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Manoj Acharya</title>
+<meta name="description" content="Manoj Acharya. Notes and research on robotics, physical AI, ML and venture, with a daily digest.">
+<meta name="color-scheme" content="light dark">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Source+Serif+4:opsz,wght@8..60,400..650&display=swap">
 <style>
-:root{--bg:#fff;--fg:#1a1a1a;--mut:#666;--ln:#e5e5e5;--ac:#0b57d0}
-@media(prefers-color-scheme:dark){:root{--bg:#111;--fg:#eee;--mut:#999;--ln:#2a2a2a;--ac:#8ab4f8}}
-body{background:var(--bg);color:var(--fg);font:16px/1.6 system-ui,sans-serif;max-width:760px;margin:0 auto;padding:24px 16px}
-h1{font-size:1.8rem;margin-bottom:.2rem}h2{font-size:1.2rem;border-bottom:1px solid var(--ln);padding-bottom:4px;margin-top:2rem}
-a{color:var(--ac)}.mut{color:var(--mut)}li{margin:.4rem 0}
-</style></head><body>
-<h1>agi-macharya</h1>
-<p class="mut">Notes and research on robotics, physical AI, ML and venture.</p>
+:root{
+  --bg:#EEF0EC;--ink:#1B2230;--mut:#596172;--rule:#C3C8C1;--hi:#F2D600;
+  --display:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif;
+  --text:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --rail:5.25rem;--gap:1.5rem;
+}
+@media (prefers-color-scheme:dark){
+  :root{--bg:#161A21;--ink:#E7EAEE;--mut:#9AA3B2;--rule:#2F3643}
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.125rem/1.6 var(--text)}
+.wrap{max-width:46rem;margin:0 auto;padding:clamp(2rem,7vw,5rem) clamp(1.25rem,5vw,2rem) 4rem}
 
-<h2>Research digests</h2>
-<p>A daily digest of robotics and physical AI, AI/ML research and models, and VC and startup deals, with a short "worth a closer look" item for deal or research relevance.</p>
-<ul>
-<li><a href="digest/">Browse all digests</a></li>
-<li><a href="digest/2026-11-10.html">Latest: 2026-11-10</a></li>
+a{color:inherit;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.22em}
+a:hover{background:var(--hi);color:#1B2230;text-decoration-color:transparent}
+a:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+
+h1{font:700 clamp(2.75rem,10vw,4.75rem)/.95 var(--display);letter-spacing:-.035em;margin:0 0 1rem}
+.role{font:500 1.1rem/1.4 var(--display);margin:0 0 .35rem}
+.lede{color:var(--mut);margin:0 0 .9rem;max-width:34rem}
+
+.digest{margin-top:clamp(2.5rem,7vw,4rem);border-top:2px solid var(--ink);padding-top:1rem}
+h2{font:700 1.15rem/1.3 var(--display);letter-spacing:-.01em;margin:0 0 .4rem}
+.intro{color:var(--mut);margin:0;max-width:34rem}
+
+.log{list-style:none;margin:2.25rem 0 0;padding:0}
+.entry{position:relative;display:grid;grid-template-columns:var(--rail) 1fr;column-gap:var(--gap);padding-bottom:2.4rem}
+.entry::before{content:"";position:absolute;left:calc(var(--rail) + var(--gap) / 2);top:.9rem;bottom:-.3rem;width:1px;background:var(--rule)}
+.entry::after{content:"";position:absolute;left:calc(var(--rail) + var(--gap) / 2 - 5px);top:.55rem;width:10px;height:10px;background:var(--bg);border:1.5px solid var(--ink)}
+.entry.latest::after{background:var(--hi)}
+.entry:last-child{padding-bottom:0}
+.entry:last-child::before{display:none}
+
+.when{display:flex;flex-direction:column;align-items:flex-end;text-align:right}
+.day{font:700 2.75rem/.9 var(--display);letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.mon{font:500 .82rem/1.3 var(--display);color:var(--mut);margin-top:.4rem}
+.wd{font:500 .82rem/1.3 var(--display);color:var(--mut)}
+
+.body{min-width:0;max-width:34rem}
+.tops{list-style:none;margin:0 0 1.1rem;padding:0}
+.tops li{font:600 1.35rem/1.32 var(--text);letter-spacing:-.005em;margin:0 0 1rem;text-wrap:balance}
+.tops li:first-child{margin-top:-.15rem}
+.open{font:500 .95rem/1.4 var(--display)}
+.lead{font:600 1.15rem/1.35 var(--text);margin:-.1rem 0 .3rem;text-wrap:balance}
+.sum{font-size:.95rem;line-height:1.5;color:var(--mut);margin:0}
+
+.all{margin:2.6rem 0 0;font:500 1rem/1.4 var(--display)}
+.note{color:var(--mut);font-size:.95rem;line-height:1.55;margin:1rem 0 0;max-width:34rem}
+
+@media (max-width:34rem){
+  .entry{display:block;padding-bottom:2rem}
+  .entry::before,.entry::after{display:none}
+  .when{flex-direction:row;align-items:baseline;gap:.5rem;text-align:left;margin-bottom:.45rem}
+  .mon,.wd{margin:0}
+  .day{font-size:1.9rem}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+<h1>Manoj Acharya</h1>
+<p class="role">Partner at Cox Exponential. Robotics and ML engineer.</p>
+<p class="lede">Notes and research on robotics, physical AI, ML and venture.</p>
+<p><a href="https://manojacharya.com">manojacharya.com</a></p>
+</header>
+
+<main>
+<section class="digest" aria-labelledby="dh">
+<h2 id="dh">Daily digest</h2>
+<p class="intro">Each morning: robotics and physical AI, AI/ML research and models, and startup deals. It says what mattered, what is hype, and what is worth a closer look.</p>
+<ol class="log" id="log">
+<li class="entry latest">
+<time class="when" datetime="2026-11-10"><span class="day">10</span><span class="mon">Nov</span><span class="wd">Tue</span></time>
+<div class="body">
+<ul class="tops">
+<li>Shield AI agreed to buy radar maker Echodyne for $5.3B</li>
+<li>RoboColosseum, a blind head-to-head test of robot policies across 124 sites (5,699 trials), found no single winner</li>
+<li>Robotics is the second-largest AI funding sector this month by dollars</li>
 </ul>
-</body></html>
+<a class="open" href="digest/2026-11-10.html">Read the Nov 10 digest</a>
+</div></li>
+<li class="entry">
+<time class="when" datetime="2026-11-09"><span class="day">9</span><span class="mon">Nov</span><span class="wd">Mon</span></time>
+<div class="body">
+<p class="lead"><a href="digest/2026-11-09.html">Humanoid money is far ahead of humanoid work</a></p>
+<p class="sum">Bedrock $600M, humanoid funding vs. deployment, OpenAI/Anthropic valuations, WorldParticle</p>
+</div></li>
+<li class="entry">
+<time class="when" datetime="2026-11-08"><span class="day">8</span><span class="mon">Nov</span><span class="wd">Sun</span></time>
+<div class="body">
+<p class="lead"><a href="digest/2026-11-08.html">Defense autonomy is taking the largest checks</a></p>
+<p class="sum">Shield AI/Echodyne, Zipline $1.5B, OpenAI round, Tutor Intelligence</p>
+</div></li>
+<li class="entry">
+<time class="when" datetime="2026-11-07"><span class="day">7</span><span class="mon">Nov</span><span class="wd">Sat</span></time>
+<div class="body">
+<p class="lead"><a href="digest/2026-11-07.html">Open-weight models keep closing on the frontier</a></p>
+<p class="sum">Kimi K3.1 Pro weights, October funding, Bedrock/Foundry, Agility SPAC</p>
+</div></li>
+<li class="entry">
+<time class="when" datetime="2026-11-06"><span class="day">6</span><span class="mon">Nov</span><span class="wd">Fri</span></time>
+<div class="body">
+<p class="lead"><a href="digest/2026-11-06.html">AI equities sold off hard on Nov 5</a></p>
+<p class="sum">AI equity selloff, Agility goes public, Zipline, Shield AI/Echodyne</p>
+</div></li>
+<li class="entry">
+<time class="when" datetime="2026-11-05"><span class="day">5</span><span class="mon">Nov</span><span class="wd">Thu</span></time>
+<div class="body">
+<p class="lead"><a href="digest/2026-11-05.html">Fal raised $1.3B at about $16B</a></p>
+<p class="sum">Fal $1.3B, Bedrock $600M, Agility SPAC, GPT-6 Cyber</p>
+</div></li>
+</ol>
+<p class="all"><a id="all" href="digest/">All 6 digests</a></p>
+<p class="note">Digests are compiled automatically from web search, often from secondhand sources. Each page flags what was not verified.</p>
+</section>
+</main>
+</div>
+
+<script type="application/json" id="seed">[{"date": "2026-11-10", "summary": "Shield AI/Echodyne, RoboColosseum, GR00T 2, Fable 5.2", "leads": ["Shield AI agreed to buy radar maker Echodyne for $5.3B", "RoboColosseum, a blind head-to-head test of robot policies across 124 sites (5,699 trials), found no single winner", "Robotics is the second-largest AI funding sector this month by dollars"]}, {"date": "2026-11-09", "summary": "Bedrock $600M, humanoid funding vs. deployment, OpenAI/Anthropic valuations, WorldParticle", "leads": ["Humanoid money is far ahead of humanoid work", "Heavy-equipment autonomy is where the real money is going", "Frontier-lab valuations are wobbling at the top"]}, {"date": "2026-11-08", "summary": "Shield AI/Echodyne, Zipline $1.5B, OpenAI round, Tutor Intelligence", "leads": ["Defense autonomy is taking the largest checks", "Zipline raised $1.5B at a $21.5B post-money valuation", "OpenAI's round is still open"]}, {"date": "2026-11-07", "summary": "Kimi K3.1 Pro weights, October funding, Bedrock/Foundry, Agility SPAC", "leads": ["Open-weight models keep closing on the frontier", "Money is still concentrating in a few huge rounds", "Physical AI is shifting from model demos to capital-heavy operations"]}, {"date": "2026-11-06", "summary": "AI equity selloff, Agility goes public, Zipline, Shield AI/Echodyne", "leads": ["AI equities sold off hard on Nov 5", "Agility Robotics is now the first pure-play humanoid public company", "Physical-AI and defense-autonomy money is still flowing despite the selloff"]}, {"date": "2026-11-05", "summary": "Fal $1.3B, Bedrock $600M, Agility SPAC, GPT-6 Cyber", "leads": ["Fal raised $1.3B at about $16B", "Physical-AI money is flowing to deployable, narrow autonomy, not generic humanoids", "Agility Robotics' SPAC close and Nasdaq debut was scheduled for Nov 4–5 (unverified)"]}]</script>
+<script>
+(function () {
+  var MAX = 7;
+  var seedEl = document.getElementById('seed');
+  var log = document.getElementById('log');
+  var allLink = document.getElementById('all');
+  if (!seedEl || !log || !window.fetch || !window.DOMParser) return;
+  var known;
+  try { known = JSON.parse(seedEl.textContent); } catch (e) { return; }
+
+  function el(tag, cls, text) {
+    var e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text != null) e.textContent = text;
+    return e;
+  }
+  function parts(date) {
+    var p = date.split('-').map(Number);
+    var t = new Date(Date.UTC(p[0], p[1] - 1, p[2]));
+    var f = function (o) { o.timeZone = 'UTC'; return t.toLocaleDateString('en-US', o); };
+    return { day: String(p[2]), mon: f({ month: 'short' }), wd: f({ weekday: 'short' }),
+             long: f({ month: 'short', day: 'numeric' }) };
+  }
+  function get(url) {
+    return fetch(url, { cache: 'no-cache' }).then(function (r) {
+      if (!r.ok) throw new Error(r.status);
+      return r.text();
+    });
+  }
+  function render(list) {
+    log.textContent = '';
+    list.slice(0, MAX).forEach(function (e, i) {
+      var p = parts(e.date), page = 'digest/' + e.date + '.html';
+      var li = el('li', i === 0 ? 'entry latest' : 'entry');
+      var when = el('time', 'when');
+      when.setAttribute('datetime', e.date);
+      when.appendChild(el('span', 'day', p.day));
+      when.appendChild(el('span', 'mon', p.mon));
+      when.appendChild(el('span', 'wd', p.wd));
+      li.appendChild(when);
+      var body = el('div', 'body');
+      var leads = e.leads && e.leads.length ? e.leads : [e.summary];
+      if (i === 0) {
+        var ul = el('ul', 'tops');
+        leads.forEach(function (h) { ul.appendChild(el('li', null, h)); });
+        body.appendChild(ul);
+        var open = el('a', 'open', 'Read the ' + p.long + ' digest');
+        open.href = page;
+        body.appendChild(open);
+      } else {
+        var lead = el('p', 'lead');
+        var a = el('a', null, leads[0]);
+        a.href = page;
+        lead.appendChild(a);
+        body.appendChild(lead);
+        body.appendChild(el('p', 'sum', e.summary));
+      }
+      li.appendChild(body);
+      log.appendChild(li);
+    });
+    allLink.textContent = 'All ' + list.length + ' digests';
+  }
+
+  // Pick up digests added after this page was last built.
+  get('digest/index.html').then(function (text) {
+    var doc = new DOMParser().parseFromString(text, 'text/html');
+    var rows = [].slice.call(doc.querySelectorAll('li')).map(function (li) {
+      var a = li.querySelector('a');
+      var m = a && /^\d{4}-\d\d-\d\d/.exec(a.textContent.trim());
+      if (!m) return null;
+      var summary = li.textContent.replace(a.textContent, '').replace(/^\s*[–—-]\s*/, '').trim();
+      return { date: m[0], summary: summary };
+    }).filter(Boolean);
+
+    var byDate = {};
+    known.forEach(function (e) { byDate[e.date] = e; });
+    var fresh = rows.filter(function (r) { return !byDate[r.date]; });
+    if (!fresh.length) return;
+
+    return Promise.all(fresh.map(function (r) {
+      return get('digest/' + r.date + '.html').then(function (page) {
+        var d = new DOMParser().parseFromString(page, 'text/html');
+        r.leads = [].slice.call(d.querySelectorAll('ol > li > b')).slice(0, 3)
+          .map(function (b) {
+            var t = b.textContent.trim().replace(/\.$/, '');
+            var m = /\s*\(([^)]*)\)$/.exec(t);
+            if (m && !/^(unverified|reported)$/i.test(m[1])) t = t.slice(0, m.index);
+            return t;
+          });
+        return r;
+      }, function () { r.leads = []; return r; });
+    })).then(function (added) {
+      var list = known.concat(added);
+      list.sort(function (a, b) { return a.date < b.date ? 1 : -1; });
+      render(list);
+    });
+  }).catch(function () { /* keep the pre-built list */ });
+})();
+</script>
+</body>
+</html>
