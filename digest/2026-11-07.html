@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Research Digest: 2026-11-07</title><link rel="stylesheet" href="style.css"></head><body>
+<p><a href="index.html">&larr; All digests</a></p>
+<h1>Daily Research Digest: Nov 7, 2026</h1>
+<p class="note">Caveat: search coverage of the last 24 hours was thin, especially in robotics. I widened to roughly the past week. Items are dated where I could confirm a date, and I marked them where I couldn't.</p>
+
+<h2>Top 3 things to know</h2>
+<ol>
+<li><b>Open-weight models keep closing on the frontier.</b> Moonshot released the full Kimi K3.1 Pro weights (about 2.8T total and 104B active parameters, modified MIT license). A benchmark aggregator ranks it 12th overall, its highest open-weight placement. For deployment, this lowers the cost floor for anyone building on top of models.</li>
+<li><b>Money is still concentrating in a few huge rounds.</b> October global venture funding was about $59B, up 45% year over year. DeepSeek's reported $15.9B raise at about $90B led it. Seven billion-dollar-plus rounds made up just over 40% of the total, and AI took about 66%. Headline growth is mostly mega-rounds, not breadth.</li>
+<li><b>Physical AI is shifting from model demos to capital-heavy operations.</b> Bedrock Robotics (autonomy for construction equipment) raised $600M at a $4.1B post-money valuation. Foundry Robotics raised $100M to own and run robot-staffed factories. Investors are now funding the operating model, not just the robot.</li>
+</ol>
+
+<h2>Robotics &amp; physical AI</h2>
+<ul>
+<li><b>Bedrock Robotics: $600M Series C at $4.1B post-money</b> (CapitalG and Emergence co-led, week of Oct 26). Takeaway: autonomy retrofitted onto existing heavy equipment is attracting real money. It is a more deployable wedge than general humanoids.</li>
+<li><b>Foundry Robotics: $100M Series A</b> (Marlinspike led; Khosla and others participated; Oct 28). It is a manufacturing-as-a-service model: it owns the facility, deploys robotic cells and runs production for customers (drones, satellites and similar). Takeaway: this is a bet on utilization and unit economics, not on selling robots. It is interesting, but execution risk is high.</li>
+<li><b>Agility Robotics going public via SPAC at about $2.5B</b> (reported with about $300M in Digit orders). Takeaway: this is the first real public-market test of humanoid pricing. Coverage points to a discount to private peers, so watch the multiple. Exact timing was not confirmed in my sources.</li>
+<li><b>AgiBot rolled off its 15,000th robot.</b> Takeaway: Chinese humanoid makers are ahead on unit volume. Counts are company-reported and say nothing about task reliability or revenue per robot.</li>
+<li><b>XPENG's physical AI unit raised over $900M at a $6.3B valuation</b> (Aug 24, so older context). XPENG targets mass production of its IRON humanoid by end of 2026, with customer deliveries in 2027. Hype check: initial deployment is in its own stores and campuses.</li>
+<li><b>Hype watch:</b> NEURA's "up to $1.4B" Series C (June) and its "millions of robots by 2030" target are company-stated, and "up to" does real work in that headline.</li>
+</ul>
+
+<h2>AI/ML research &amp; models</h2>
+<ul>
+<li><b>Kimi K3.1 Pro weights released</b> (Moonshot, listed as of Nov 2). API pricing is $2/$10 per million tokens. The license carries conditions for very large commercial users.</li>
+<li><b>OpenAI GPT-6 Cyber</b> (Nov 5) is gated to vetted customers and aimed at vulnerability and exploit work. The ExploitGym score of 48.5% vs 42.4% for GPT-6 Astra is OpenAI-reported, so treat it as a vendor claim.</li>
+<li><b>Thinking Machines Lab's Inkling 2 Small</b> (Nov 5) is a mixture-of-experts model (594B total, 17B active, 1M context) with Apache 2.0 weights promised after safety testing. Watch whether the weights actually ship.</li>
+<li><b>Smaller releases:</b> Ricursive's Ripple-65B Preview (Apache 2.0, Nov 4; the claimed $32M training cost is unverified), Cognition's SWE-2 Flash, and Tencent's Hy4 (weights not yet public).</li>
+<li><b>Benchmark honesty check:</b> four new benchmarks landed this week, and no lab led both its own and the cross-lab versions. Discount lab-run leaderboards. One arXiv audit of physical-AI benchmark redundancy is also worth a skim if you evaluate robot-learning claims.</li>
+</ul>
+
+<h2>VC &amp; startup deals</h2>
+<ul>
+<li><b>October totals:</b> $59B globally, with the US at $28B and China at $20.6B. Moonshot AI reportedly reached a $50B valuation and filed confidentially for a Hong Kong IPO. Anthropic's IPO was expected in November.</li>
+<li><b>Other large October rounds:</b> Re:Build $2.1B, Axiom $2B, Ramp $1.85B, Tenstorrent $1.5B, Kalshi $1B.</li>
+<li><b>Last week's AI total:</b> $2.43B across 16 rounds of $20M or more. FuriosaAI raised a $620M Series D, with roughly $280M from Korea's National Growth Fund. Serval raised $150M at $3B.</li>
+<li><b>M&amp;A:</b> Guidewire is buying hyperexponential for $1.7B cash plus up to $400M in earnout. Uber agreed to buy ezCater for $2.3B. At least nine $1B-plus acquisitions of venture-backed companies closed in October.</li>
+<li><b>Small robotics rounds:</b> URobotics ($30M Series A, autonomous mobility, Nov 6) and Anvil Robotics ($5.5M seed, modular robot-building platform). I could not read the URobotics page, so the details are from the search snippet only.</li>
+</ul>
+
+<h2>Worth a closer look</h2>
+<p><b>Foundry Robotics (manufacturing-as-a-service).</b> The claim is that robotic cells can make complex electro-mechanical products (defense and space hardware) at lower cost with faster iteration than contract manufacturers. Diligence questions: cell changeover time between products, real cost per unit against a human line, customer concentration in defense, and whether owning the buildings turns this into a capital-intensive real-estate business. Bedrock Robotics is the companion comparison: a software-and-retrofit model that reached a $4.1B valuation. It is worth checking whether the market is pricing hardware-light autonomy above owned-asset operators.</p>
+
+<h2>Sources</h2>
+<ul>
+<li><a href="https://benchlm.ai/blog/posts/llm-news-november-7-2026">Benchlm: LLM News, November 7, 2026</a></li>
+<li><a href="https://news.crunchbase.com/venture/october-2026-global-startup-funding-strong-china-deepseek/">Crunchbase News: October 2026 global startup funding</a></li>
+<li><a href="https://aifundingtracker.com/ai-funding-oct-26-nov-1-furiosaai-bedrock-robotics-lead-2-43b-week/">AI Funding Tracker: Oct 26–Nov 1</a></li>
+<li><a href="https://dealroom.co/news/167689-foundry-robotics-lands-100m-to-own-and-run-ai-powered-factories/">Dealroom: Foundry Robotics lands $100M</a></li>
+<li><a href="https://www.artificialintelligence-news.com/news/xpeng-iron-humanoid-robot-draws-record-physical-ai-funding/">AI News: XPENG IRON humanoid funding</a></li>
+<li><a href="https://neura-robotics.com/record-series-c/">NEURA Robotics: Series C announcement</a></li>
+<li><a href="https://www.eweek.com/news/agility-robotics-spac-deal-digit-humanoid-robots/">eWeek: Agility Robotics SPAC</a></li>
+<li><a href="https://www.eweek.com/news/agibot-15000-robot-embodied-ai/">eWeek: AgiBot 15,000th robot</a></li>
+<li><a href="https://en.wowtale.net/2026/11/06/235876/">Wowtale: URobotics Series A</a> (not readable; snippet only)</li>
+<li><a href="https://news.crunchbase.com/robotics/physical-ai-custom-robot-builder-seed-funding-anvil/">Crunchbase News: Anvil Robotics seed</a></li>
+<li><a href="https://arxiv.org/pdf/2608.25940">arXiv: Statistical Audit of Physical AI Benchmark Redundancy</a></li>
+</ul>
+</body></html>
