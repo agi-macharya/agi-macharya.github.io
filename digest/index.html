@@ -1,14 +1,180 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Research Digests</title><link rel="stylesheet" href="style.css"></head><body>
-<h1>Research Digests</h1>
-<p class="meta">Daily robotics, AI/ML and VC digests, newest first.</p>
-<ul>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Daily digest</title>
+<meta name="description" content="A daily digest of robotics and physical AI, AI/ML research and models, and startup deals.">
+<meta name="color-scheme" content="light dark">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Source+Serif+4:opsz,wght@8..60,400..650&display=swap">
+<style>
+:root{
+  --bg:#EEF0EC;--ink:#1B2230;--mut:#596172;--rule:#C3C8C1;--hi:#F2D600;
+  --display:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif;
+  --text:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --rail:5.25rem;--gap:1.5rem;
+}
+@media (prefers-color-scheme:dark){
+  :root{--bg:#161A21;--ink:#E7EAEE;--mut:#9AA3B2;--rule:#2F3643}
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.125rem/1.6 var(--text)}
+.wrap{max-width:46rem;margin:0 auto;padding:clamp(1.5rem,5vw,3rem) clamp(1.25rem,5vw,2rem) 4rem}
+
+a{color:inherit;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.22em}
+a:hover{background:var(--hi);color:#1B2230;text-decoration-color:transparent}
+a:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+
+.back{font:500 .95rem/1.4 var(--display);margin:0 0 clamp(2rem,6vw,3.5rem)}
+h1{font:700 clamp(2.5rem,9vw,4rem)/.95 var(--display);letter-spacing:-.035em;margin:0 0 1rem}
+.intro{color:var(--mut);margin:0;max-width:34rem}
+
+.log{list-style:none;margin:2.5rem 0 0;padding:0}
+.entry{position:relative;display:grid;grid-template-columns:var(--rail) 1fr;column-gap:var(--gap);padding-bottom:2.4rem}
+.entry::before{content:"";position:absolute;left:calc(var(--rail) + var(--gap) / 2);top:.9rem;bottom:-.3rem;width:1px;background:var(--rule)}
+.entry::after{content:"";position:absolute;left:calc(var(--rail) + var(--gap) / 2 - 5px);top:.55rem;width:10px;height:10px;background:var(--bg);border:1.5px solid var(--ink)}
+.entry.latest::after{background:var(--hi)}
+.entry:last-child{padding-bottom:0}
+.entry:last-child::before{display:none}
+
+.when{display:flex;flex-direction:column;align-items:flex-end;text-align:right}
+.day{font:700 2.75rem/.9 var(--display);letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.mon,.wd{font:500 .82rem/1.3 var(--display);color:var(--mut)}
+.mon{margin-top:.4rem}
+
+.body{min-width:0;max-width:34rem}
+.tops{list-style:none;margin:0 0 1.1rem;padding:0}
+.tops li{font:600 1.35rem/1.32 var(--text);letter-spacing:-.005em;margin:0 0 1rem;text-wrap:balance}
+.tops li:first-child{margin-top:-.15rem}
+.open{font:500 .95rem/1.4 var(--display)}
+.lead{font:600 1.15rem/1.35 var(--text);margin:-.1rem 0 .3rem;text-wrap:balance}
+.sum{font-size:.95rem;line-height:1.5;color:var(--mut);margin:0}
+
+.note{color:var(--mut);font-size:.95rem;line-height:1.55;margin:2.6rem 0 0;max-width:34rem}
+
+/* Before the script runs (or without it) the list shows as plain rows. */
+.log > li:not(.entry){margin:.5rem 0}
+
+@media (max-width:34rem){
+  .entry{display:block;padding-bottom:2rem}
+  .entry::before,.entry::after{display:none}
+  .when{flex-direction:row;align-items:baseline;gap:.5rem;text-align:left;margin-bottom:.45rem}
+  .mon,.wd{margin:0}
+  .day{font-size:1.9rem}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<p class="back"><a href="../">&larr; Manoj Acharya</a></p>
+<h1>Daily digest</h1>
+<p class="intro">Each morning: robotics and physical AI, AI/ML research and models, and startup deals. It says what mattered, what is hype, and what is worth a closer look.</p>
+
+<!-- To add a digest: save it as YYYY-MM-DD.html in this folder and add one row to this list, newest first.
+     The page reads the rows below and fetches each new digest's top three headlines itself. -->
+<ol class="log" id="log">
 <li><a href="2026-11-10.html">2026-11-10</a> &ndash; Shield AI/Echodyne, RoboColosseum, GR00T 2, Fable 5.2</li>
 <li><a href="2026-11-09.html">2026-11-09</a> &ndash; Bedrock $600M, humanoid funding vs. deployment, OpenAI/Anthropic valuations, WorldParticle</li>
 <li><a href="2026-11-08.html">2026-11-08</a> &ndash; Shield AI/Echodyne, Zipline $1.5B, OpenAI round, Tutor Intelligence</li>
 <li><a href="2026-11-07.html">2026-11-07</a> &ndash; Kimi K3.1 Pro weights, October funding, Bedrock/Foundry, Agility SPAC</li>
 <li><a href="2026-11-06.html">2026-11-06</a> &ndash; AI equity selloff, Agility goes public, Zipline, Shield AI/Echodyne</li>
 <li><a href="2026-11-05.html">2026-11-05</a> &ndash; Fal $1.3B, Bedrock $600M, Agility SPAC, GPT-6 Cyber</li>
-</ul>
-</body></html>
+</ol>
+
+<p class="note">Digests are compiled automatically from web search, often from secondhand sources. Each page flags what was not verified.</p>
+</div>
+
+<script type="application/json" id="seed">{"2026-11-10": ["Shield AI agreed to buy radar maker Echodyne for $5.3B", "RoboColosseum, a blind head-to-head test of robot policies across 124 sites (5,699 trials), found no single winner", "Robotics is the second-largest AI funding sector this month by dollars"], "2026-11-09": ["Humanoid money is far ahead of humanoid work", "Heavy-equipment autonomy is where the real money is going", "Frontier-lab valuations are wobbling at the top"], "2026-11-08": ["Defense autonomy is taking the largest checks", "Zipline raised $1.5B at a $21.5B post-money valuation", "OpenAI's round is still open"], "2026-11-07": ["Open-weight models keep closing on the frontier", "Money is still concentrating in a few huge rounds", "Physical AI is shifting from model demos to capital-heavy operations"], "2026-11-06": ["AI equities sold off hard on Nov 5", "Agility Robotics is now the first pure-play humanoid public company", "Physical-AI and defense-autonomy money is still flowing despite the selloff"], "2026-11-05": ["Fal raised $1.3B at about $16B", "Physical-AI money is flowing to deployable, narrow autonomy, not generic humanoids", "Agility Robotics' SPAC close and Nasdaq debut was scheduled for Nov 4–5 (unverified)"]}</script>
+<script>
+(function () {
+  var log = document.getElementById('log');
+  var seedEl = document.getElementById('seed');
+  if (!log || !window.fetch || !window.DOMParser) return;
+  var seed = {};
+  try { seed = JSON.parse(seedEl.textContent); } catch (e) {}
+
+  function el(tag, cls, text) {
+    var e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text != null) e.textContent = text;
+    return e;
+  }
+  function parts(date) {
+    var p = date.split('-').map(Number);
+    var t = new Date(Date.UTC(p[0], p[1] - 1, p[2]));
+    var f = function (o) { o.timeZone = 'UTC'; return t.toLocaleDateString('en-US', o); };
+    return { day: String(p[2]), mon: f({ month: 'short' }), wd: f({ weekday: 'short' }),
+             long: f({ month: 'short', day: 'numeric' }) };
+  }
+  function tidy(t) {
+    t = t.trim().replace(/\.$/, '');
+    var m = /\s*\(([^)]*)\)$/.exec(t);
+    if (m && !/^(unverified|reported)$/i.test(m[1])) t = t.slice(0, m.index);
+    return t;
+  }
+
+  var rows = [].slice.call(log.children).map(function (li) {
+    var a = li.querySelector('a');
+    var m = a && /^\d{4}-\d\d-\d\d/.exec(a.textContent.trim());
+    if (!m) return null;
+    var summary = li.textContent.replace(a.textContent, '').replace(/^\s*[–—-]\s*/, '').trim();
+    return { date: m[0], summary: summary, leads: seed[m[0]] || null };
+  }).filter(Boolean);
+  if (!rows.length) return;
+  rows.sort(function (a, b) { return a.date < b.date ? 1 : -1; });
+
+  function render() {
+    log.textContent = '';
+    rows.forEach(function (e, i) {
+      var p = parts(e.date), page = e.date + '.html';
+      var li = el('li', i === 0 ? 'entry latest' : 'entry');
+      var when = el('time', 'when');
+      when.setAttribute('datetime', e.date);
+      when.appendChild(el('span', 'day', p.day));
+      when.appendChild(el('span', 'mon', p.mon));
+      when.appendChild(el('span', 'wd', p.wd));
+      li.appendChild(when);
+      var body = el('div', 'body');
+      var leads = e.leads && e.leads.length ? e.leads : [e.summary];
+      if (i === 0) {
+        var ul = el('ul', 'tops');
+        leads.forEach(function (h) { ul.appendChild(el('li', null, h)); });
+        body.appendChild(ul);
+        var open = el('a', 'open', 'Read the ' + p.long + ' digest');
+        open.href = page;
+        body.appendChild(open);
+      } else {
+        var lead = el('p', 'lead');
+        var a = el('a', null, leads[0]);
+        a.href = page;
+        lead.appendChild(a);
+        body.appendChild(lead);
+        body.appendChild(el('p', 'sum', e.summary));
+      }
+      li.appendChild(body);
+      log.appendChild(li);
+    });
+  }
+
+  render();
+
+  // Digests added since this page was built: read their headlines directly.
+  var missing = rows.filter(function (r) { return !r.leads; });
+  if (!missing.length) return;
+  Promise.all(missing.map(function (r) {
+    return fetch(r.date + '.html', { cache: 'no-cache' }).then(function (res) {
+      if (!res.ok) throw new Error(res.status);
+      return res.text();
+    }).then(function (text) {
+      var d = new DOMParser().parseFromString(text, 'text/html');
+      r.leads = [].slice.call(d.querySelectorAll('ol > li > b')).slice(0, 3)
+        .map(function (b) { return tidy(b.textContent); });
+    }).catch(function () { r.leads = []; });
+  })).then(render);
+})();
+</script>
+</body>
+</html>
