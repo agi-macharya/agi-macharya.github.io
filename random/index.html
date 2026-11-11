@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Random</title>
+<meta name="description" content="One-off pages and experiments.">
+<meta name="color-scheme" content="light dark">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Source+Serif+4:opsz,wght@8..60,400..650&display=swap">
+<style>
+:root{
+  --bg:#EEF0EC;--ink:#1B2230;--mut:#596172;--rule:#C3C8C1;--hi:#F2D600;
+  --display:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif;
+  --text:"Source Serif 4",Georgia,"Times New Roman",serif;
+}
+@media (prefers-color-scheme:dark){
+  :root{--bg:#161A21;--ink:#E7EAEE;--mut:#9AA3B2;--rule:#2F3643}
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.125rem/1.6 var(--text)}
+.wrap{max-width:46rem;margin:0 auto;padding:clamp(1.5rem,5vw,3rem) clamp(1.25rem,5vw,2rem) 4rem}
+
+a{color:inherit;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.22em}
+a:hover{background:var(--hi);color:#1B2230;text-decoration-color:transparent}
+a:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+
+.back{font:500 .95rem/1.4 var(--display);margin:0 0 clamp(2rem,6vw,3.5rem)}
+h1{font:700 clamp(2.5rem,9vw,4rem)/.95 var(--display);letter-spacing:-.035em;margin:0 0 1rem}
+.intro{color:var(--mut);margin:0;max-width:34rem}
+
+.list{list-style:none;margin:2.5rem 0 0;padding:0;border-top:2px solid var(--ink)}
+.list li{padding:1.1rem 0;border-bottom:1px solid var(--rule)}
+.list a{font:600 1.25rem/1.35 var(--text);text-wrap:balance}
+.file{display:block;margin-top:.2rem;font:500 .85rem/1.4 var(--display);color:var(--mut)}
+.status{color:var(--mut);font-size:.95rem;margin:1rem 0 0}
+</style>
+</head>
+<body>
+<div class="wrap">
+<p class="back"><a href="../">&larr; Manoj Acharya</a></p>
+<h1>Random</h1>
+<p class="intro">One-off pages and experiments.</p>
+
+<!-- To add an entry: put the .html file in this folder and add a row below.
+     Files that are in the folder but not listed here are added automatically
+     (named from the filename) when the page loads. -->
+<ul class="list" id="list">
+<li><a href="eminem_note.html">8 Mile Notes Annotated</a><span class="file">eminem_note.html</span></li>
+<li><a href="emimen_note_mimov26flash.html">Eminem: Lose Yourself, notebook page annotated</a><span class="file">emimen_note_mimov26flash.html</span></li>
+</ul>
+<p class="status" id="status" hidden></p>
+</div>
+
+<script>
+(function () {
+  var list = document.getElementById('list');
+  if (!list || !window.fetch) return;
+  var known = {};
+  [].slice.call(list.querySelectorAll('a')).forEach(function (a) {
+    known[a.getAttribute('href')] = true;
+  });
+
+  // Ask GitHub which files are in this folder, so new pages show up
+  // without editing this list. If the request fails, the list above stays.
+  var api = 'https://api.github.com/repos/agi-macharya/agi-macharya.github.io/contents/random';
+  fetch(api, { headers: { Accept: 'application/vnd.github+json' } })
+    .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+    .then(function (files) {
+      files.forEach(function (f) {
+        if (f.type !== 'file' || !/\.html?$/i.test(f.name)) return;
+        if (f.name === 'index.html' || known[f.name]) return;
+        var li = document.createElement('li');
+        var a = document.createElement('a');
+        a.href = f.name;
+        a.textContent = f.name.replace(/\.html?$/i, '').replace(/[_-]+/g, ' ');
+        var s = document.createElement('span');
+        s.className = 'file';
+        s.textContent = f.name;
+        li.appendChild(a);
+        li.appendChild(s);
+        list.appendChild(li);
+      });
+    })
+    .catch(function () { /* keep the listed entries */ });
+})();
+</script>
+</body>
+</html>
